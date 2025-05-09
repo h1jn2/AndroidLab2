@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ch1</string>
+    <string name="drawer_open">Opened Drawer</string>
+    <string name="drawer_close">Closed Drawer</string>
 </resources>
