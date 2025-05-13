@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/ch1" />
             <option value="$PROJECT_DIR$/ch2" />
             <option value="$PROJECT_DIR$/ch3" />
+            <option value="$PROJECT_DIR$/ch3_outer" />
           </set>
         </option>
       </GradleProjectSettings>
