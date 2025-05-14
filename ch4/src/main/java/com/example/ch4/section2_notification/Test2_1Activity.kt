@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -103,6 +104,25 @@ class Test2_1Activity : AppCompatActivity() {
                 "Action",
                 actionPendingIntent
             ).build()
+        )
+
+        // Remote Input
+        val remoteInput = RemoteInput.Builder("key_reply").run {
+            setLabel("답장")
+            build()
+        }
+
+        // 준비된 RemoteInput 을 Action 으로 추가
+        val remoteIntent = Intent(this, MyRemoteInputReceiver::class.java)
+        val remotePendintIntent = PendingIntent.getBroadcast(
+            this, 30,
+            remoteIntent, PendingIntent.FLAG_MUTABLE
+        )
+
+        builder.addAction(
+            NotificationCompat.Action.Builder(
+                R.drawable.send, "답장", remotePendintIntent
+            ).addRemoteInput(remoteInput).build()
         )
 
         manager.notify(11, builder.build())
