@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLab2">
         <service
+            android:name=".section2_background.MyService2"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="shortService">
+
+        </service>
+
+        <activity
+            android:name=".section2_background.Test2_1Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
             android:name=".section1_service.MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".section1_service.Test1_1Activity"
